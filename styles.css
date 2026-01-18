@@ -1,0 +1,508 @@
+:root{
+  --pink:#ff3aa8;
+  --pink-soft:#ffe3f2;
+  --white:#ffffff;
+  --ink:#111111;
+  --muted:#666;
+  --card:#ffffff;
+  --border:#f0c6de;
+  --shadow: 0 10px 25px rgba(0,0,0,.08);
+  --radius:16px;
+  --max:1100px;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--ink);
+  background: linear-gradient(180deg, var(--pink-soft), var(--white) 40%);
+  /* Page fade-in; JS adds .page-loaded */
+  opacity:0;
+  transition: opacity .4s ease;
+}
+body.page-loaded{opacity:1;}
+
+a{color:inherit; text-decoration:none}
+img{max-width:100%; display:block}
+
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:8px;
+  padding:10px 14px;
+  background:#fff;
+  border:2px solid var(--pink);
+  border-radius:10px;
+  z-index:999;
+}
+.skip-link:focus{
+  left:12px;
+}
+
+.container{max-width:var(--max); margin:0 auto; padding:18px 16px}
+
+.header{
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top:0;
+  z-index:10;
+  border-bottom: 2px solid rgba(240,198,222,.7);
+}
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px;
+}
+.brand{
+  display:flex; align-items:center; gap:12px;
+}
+.brand img{width:54px; height:54px; border-radius:14px; object-fit:contain; background:#fff; border:1px solid rgba(0,0,0,.06)}
+.brand h1{font-size:18px; margin:0; line-height:1.1}
+.brand p{margin:0; font-size:12px; color:var(--muted)}
+
+.nav{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.nav a{
+  padding:10px 12px;
+  border-radius: 999px;
+  border:1px solid rgba(0,0,0,.06);
+  background:#fff;
+  font-weight:650;
+  font-size:13px;
+}
+.nav a.active{
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(255,58,168,.15);
+}
+.nav a:focus-visible,
+.btn:focus-visible{
+  outline:3px solid rgba(255,58,168,.6);
+  outline-offset:2px;
+}
+
+.hero{
+  margin-top:16px;
+  border-radius: var(--radius);
+  background: #fff;
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow: var(--shadow);
+  padding:22px;
+  display:grid;
+  gap:14px;
+}
+.hero h2{margin:0; font-size:28px}
+.hero p{margin:0; color:var(--muted)}
+.hero .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:4px}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:8px;
+  padding:11px 14px;
+  border-radius: 12px;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+  font-weight:700;
+  font-size:14px;
+}
+.btn.primary{
+  background: var(--pink);
+  border-color: var(--pink);
+  color:#fff;
+}
+.btn.soft{
+  background: var(--pink-soft);
+  border-color: var(--border);
+}
+.btn:active{
+  transform: scale(0.98);
+}
+.nav a:focus-visible,
+.btn:focus-visible{
+  outline:3px solid rgba(255,58,168,.6);
+  outline-offset:2px;
+}
+.reveal{
+  opacity:0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+body.page-loaded .reveal.in-view{
+  opacity:1;
+  transform: translateY(0);
+}
+
+.section{
+  margin-top:22px;
+  padding:18px;
+}
+.section h3{margin:0 0 10px 0; font-size:18px}
+.small{color:var(--muted); font-size:13px; margin-top:6px}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:14px;
+  margin-top:12px;
+}
+.grid .card{
+  opacity:0;
+  transform: translateY(12px);
+  animation: fadeUp .6s ease forwards;
+}
+.grid .card:nth-child(1){animation-delay:.05s;}
+.grid .card:nth-child(2){animation-delay:.1s;}
+.grid .card:nth-child(3){animation-delay:.15s;}
+.grid .card:nth-child(4){animation-delay:.2s;}
+.grid .card:nth-child(5){animation-delay:.25s;}
+.grid .card:nth-child(6){animation-delay:.3s;}
+.grid .card:nth-child(7){animation-delay:.35s;}
+.grid .card:nth-child(8){animation-delay:.4s;}
+
+.card{
+  border-radius: 16px;
+  overflow:hidden;
+  background: transparent;
+  border:none;
+  display:flex;
+  flex-direction:column;
+}
+.card .imgwrap{
+  height:220px;
+  background: #f6f6f6;
+  overflow:hidden;
+}
+.card .imgwrap img{width:100%; height:100%; object-fit:cover}
+.card .body{
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  min-height:140px;
+}
+.card h4{margin:0 0 6px 0; font-size:15px}
+.price{font-weight:900}
+.meta{color:var(--muted); font-size:13px; margin:6px 0 0}
+.actions{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto}
+
+.footer{
+  margin-top:28px;
+  padding:22px 16px;
+  text-align:center;
+  color:var(--muted);
+}
+.footer a{font-weight:700}
+.footer .links{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:8px}
+
+.page-title{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.page-title h2{margin:0; font-size:22px}
+.badge{
+  padding:6px 10px;
+  border-radius:999px;
+  background: var(--pink-soft);
+  border:1px solid var(--border);
+  font-weight:800;
+  font-size:12px;
+}
+
+.product-layout{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:16px;
+}
+@media (min-width: 860px){
+  .product-layout{grid-template-columns: 1.1fr .9fr}
+}
+.product-box{
+  background: transparent;
+  border-radius: var(--radius);
+  border:none;
+  box-shadow:none;
+  padding:16px;
+}
+.product-image{
+  border-radius: 16px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.06);
+  height:420px;
+  background:#f6f6f6;
+}
+.product-image img{width:100%; height:100%; object-fit:cover}
+.list{
+  padding-left: 18px;
+  color: var(--muted);
+}
+.notice{
+  background: var(--pink-soft);
+  border:none;
+  border-radius: 14px;
+  padding:12px;
+  color: #333;
+  font-size: 14px;
+}
+ 
+/* ===== HERO (WIX STYLE) ===== */
+
+/* Hero sizing – scrolls normally, not full screen */
+.heroXL{
+  position: relative;
+  overflow: hidden;
+
+  /* keeps it big but not crazy */
+  min-height: 460px;
+  max-height: 720px;
+
+  padding: 34px 16px 30px;
+  display: grid;
+  place-items: center;
+
+  /* fallback gradient if video doesn't load */
+  background: linear-gradient(180deg, #ff3aa8 0%, #ff83c6 30%, #fff 74%);
+}
+
+/* Make video fill the hero */
+.heroVideo{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* adjust these to taste */
+  opacity: 0.55;
+  filter: saturate(1.2) contrast(1.05);
+  transform: scale(1.05);
+
+  pointer-events: none;
+}
+
+/* Overlay to keep it pink and readable */
+.heroOverlay{
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255,58,168,.65) 0%, rgba(255,131,198,.35) 35%, rgba(255,255,255,.0) 78%),
+    radial-gradient(900px 420px at 50% 10%, rgba(255,255,255,.30), rgba(255,255,255,0));
+  pointer-events: none;
+}
+
+/* Content stays above video */
+.heroContent{
+  position: relative;
+  width: min(1200px, 100%);
+  text-align: center;
+  z-index: 2;
+}
+
+/* BIG title */
+.heroTitle{
+  margin: 0 0 18px;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  font-weight: 950;
+  font-size: clamp(76px, 12.5vw, 180px);
+  position: relative;
+  display: inline-block;
+}
+
+/* Fill layer (dark like your screenshot) */
+.heroTitleFill{
+  display: block;
+  color: rgba(10,10,10,.92);
+  text-shadow: 0 18px 35px rgba(0,0,0,.20);
+  animation: titleFloat 3.6s ease-in-out infinite;
+}
+
+/* Stroke layer for that crisp edge */
+.heroTitleStroke{
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255,255,255,.55);
+  text-stroke: 2px rgba(255,255,255,.55);
+  pointer-events: none;
+}
+
+/* Layout under title */
+.heroMid{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 26px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.heroIconWrap{
+  width: 160px;
+  height: 160px;
+  border-radius: 26px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,58,168,.25);
+  box-shadow: 0 18px 40px rgba(0,0,0,.10);
+  display:grid;
+  place-items:center;
+}
+
+.heroIcon{
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.heroTag{
+  font-weight: 950;
+  font-size: clamp(28px, 4vw, 62px);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.heroLine{
+  font-weight: 800;
+  font-size: clamp(12px, 1.8vw, 18px);
+  opacity: .9;
+  margin-bottom: 16px;
+}
+
+.heroButtons{
+  display:flex;
+  gap: 12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+/* Button glow */
+.btn.glow{
+  box-shadow: 0 14px 30px rgba(255,58,168,.35);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn.glow:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(255,58,168,.42);
+}
+
+@keyframes fadeUp{
+  to{opacity:1; transform: translateY(0);}
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition:none !important;
+  }
+  body{opacity:1 !important;}
+  .titleVideo{filter:none;}
+}
+
+/* small motion */
+@keyframes titleFloat{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
+}
+
+/* Mobile tweaks */
+@media (max-width: 700px){
+  .heroXL{ min-height: 420px; padding: 24px 14px 24px; }
+  .heroIconWrap{ width: 130px; height: 130px; }
+  .heroIcon{ width: 90px; height: 90px; }
+}
+
+/* ===== HERO: Gradient background + ripple video inside text ===== */
+
+.heroXL{
+  position: relative;
+  overflow: hidden;
+  padding: 70px 16px 44px;
+  text-align: center;
+  background: linear-gradient(180deg, #ff3aa8 0%, #ff86c8 35%, #ffffff 80%);
+}
+
+.heroOverlay{
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(900px 500px at 50% 0%,
+    rgba(255,255,255,.25),
+    rgba(255,255,255,0) 70%);
+  pointer-events: none;
+}
+
+.titleVideoWrap{
+  position: relative;
+  z-index: 2;
+  width: min(1600px, 100%);
+  margin: 0 auto 18px;
+  height: clamp(130px, 18vw, 240px);
+  opacity:0;
+  transform: translateY(10px);
+  animation: fadeUp .9s ease forwards;
+}
+
+.titleVideo{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: transparent;
+  filter: contrast(1.12) saturate(1.25);
+
+  /* IMPORTANT: matches your folder name "assets" */
+  -webkit-mask: url("assets/title-mask.svg") center / contain no-repeat;
+  mask: url("assets/title-mask.svg") center / contain no-repeat;
+}
+
+.titleFallback{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 950;
+  letter-spacing: 0;
+  font-size: clamp(48px, 12vw, 160px);
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 12px 30px rgba(0,0,0,.25);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.heroSub{
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  opacity:0;
+  transform: translateY(12px);
+  animation: fadeUp .9s ease .12s forwards;
+}
+
+.heroTag{
+  font-weight: 950;
+  font-size: clamp(30px, 5vw, 70px);
+  letter-spacing: -0.03em;
+}
+
+.heroLine{
+  font-weight: 800;
+  font-size: clamp(12px, 1.7vw, 18px);
+  opacity: .95;
+  margin-bottom: 10px;
+}
+
+.heroButtons{
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* button glow stays */
+.btn.glow{
+  box-shadow: 0 14px 30px rgba(255,58,168,.35);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn.glow:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(255,58,168,.42);
+}

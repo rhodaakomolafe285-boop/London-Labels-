@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tech | London Labels</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="header" role="banner">
+  <div class="container topbar">
+    <a class="brand" href="index.html" aria-label="London Labels home">
+      <img src="assets/logo.png" alt="London Labels logo" width="54" height="54">
+      <div>
+        <h1>London Labels</h1>
+        <p>Clothing | Shoes | Tech | New &amp; Thrift</p>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="clothing.html">Clothing</a>
+      <a href="shoes.html">Shoes</a>
+      <a class="active" aria-current="page" href="tech.html">Tech</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="main">
+  <section class="section reveal" aria-labelledby="tech-title">
+    <h2 id="tech-title">Tech</h2>
+    <div id="products" class="grid" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div>© <span id="year"></span> London Labels</div>
+  <div class="links">
+    <a href="shipping-returns.html">Shipping & Returns</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  // Render only the tech category into the grid
+  renderCategory("tech", "products").catch(console.error);
+</script>
+
+</body>
+</html>

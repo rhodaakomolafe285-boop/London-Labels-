@@ -1,0 +1,53 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "products"
+public_folder: "products"
+
+collections:
+  - name: "products"
+    label: "Products"
+    file: "products.json"
+    format: "json"
+    fields:
+      - label: "Items"
+        name: "items"
+        widget: "list"
+        summary: "{{fields.name}} ({{fields.id}})"
+        fields:
+          - label: "ID"
+            name: "id"
+            widget: "string"
+          - label: "Name"
+            name: "name"
+            widget: "string"
+          - label: "Price"
+            name: "price"
+            widget: "number"
+            value_type: "float"
+            min: 0
+          - label: "Category"
+            name: "category"
+            widget: "select"
+            options: ["clothing", "shoes", "tech"]
+          - label: "Collection"
+            name: "collection"
+            widget: "select"
+            options: ["new", "thrift"]
+            required: false
+          - label: "Image"
+            name: "image"
+            widget: "image"
+          - label: "Description"
+            name: "description"
+            widget: "text"
+            required: false
+          - label: "Condition"
+            name: "condition"
+            widget: "string"
+            required: false
+          - label: "Payment Link"
+            name: "paymentLink"
+            widget: "string"
+            required: false

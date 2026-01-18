@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Clothing | London Labels</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="header" role="banner">
+  <div class="container topbar">
+    <a class="brand" href="index.html" aria-label="London Labels home">
+      <img src="assets/logo.png" alt="London Labels logo" width="54" height="54">
+      <div>
+        <h1>London Labels</h1>
+        <p>Clothing | Shoes | Tech | New &amp; Thrift</p>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a class="active" aria-current="page" href="clothing.html">Clothing</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="tech.html">Tech</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="main">
+  <section class="section reveal" aria-labelledby="clothing-title">
+    <h2 id="clothing-title">Clothing</h2>
+    <p class="small">New pieces and high-quality thrifts, updated often.</p>
+  </section>
+
+  <section class="section reveal" aria-labelledby="new-clothing-title">
+    <div class="page-title">
+      <h3 id="new-clothing-title">New Clothes</h3>
+      <span class="badge">New</span>
+    </div>
+    <div id="clothing-new" class="grid" aria-live="polite"></div>
+  </section>
+
+  <section class="section reveal" aria-labelledby="thrift-clothing-title">
+    <div class="page-title">
+      <h3 id="thrift-clothing-title">High-Quality Thrifts</h3>
+      <span class="badge">Thrift</span>
+    </div>
+    <div id="clothing-thrift" class="grid" aria-live="polite"></div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div>© <span id="year"></span> London Labels</div>
+  <div class="links">
+    <a href="shipping-returns.html">Shipping & Returns</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  // Render only the clothing category into the grid
+  renderCollection("clothing", "new", "clothing-new").catch(console.error);
+  renderCollection("clothing", "thrift", "clothing-thrift").catch(console.error);
+</script>
+
+</body>
+</html>

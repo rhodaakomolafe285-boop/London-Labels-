@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shipping &amp; Returns | London Labels</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="header" role="banner">
+  <div class="container topbar">
+    <a class="brand" href="index.html" aria-label="London Labels home">
+      <img src="assets/logo.png" alt="London Labels logo" width="54" height="54">
+      <div>
+        <h1>London Labels</h1>
+        <p>Clothing | Shoes | Tech | New &amp; Thrift</p>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="clothing.html">Clothing</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="tech.html">Tech</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="main">
+  <section class="section reveal" aria-labelledby="shipping-title">
+    <h2 id="shipping-title">Shipping &amp; Returns</h2>
+    <p class="small">This page builds trust. Update these details to match how you ship.</p>
+
+    <h3>Shipping (UK)</h3>
+    <ul class="list">
+      <li><strong>Processing time:</strong> 1–2 working days.</li>
+      <li><strong>Delivery time:</strong> 2–4 working days after dispatch.</li>
+      <li><strong>Shipping cost:</strong> From ₦X,XXX (depends on item size/weight).</li>
+      <li><strong>Tracking:</strong> Provided where available.</li>
+    </ul>
+
+    <h3>Click &amp; Collect (Optional)</h3>
+    <p class="small">Click &amp; Collect is available. Message us on WhatsApp at <a href="https://wa.me/447486418949">+44 7486 418949</a> to arrange a pickup time.</p>
+
+    <h3>Returns</h3>
+    <ul class="list">
+      <li><strong>Return window:</strong> 14 days from delivery.</li>
+      <li>Items must be returned in original condition.</li>
+      <li>Buyer covers return postage unless item is faulty/not as described.</li>
+      <li>Refunds processed within 3–5 working days after return is received.</li>
+    </ul>
+
+    <div class="notice">
+      <strong>How to request a return:</strong> Message us on WhatsApp or email with your order details and reason for return.
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div>© <span id="year"></span> London Labels</div>
+  <div class="links">
+    <a href="shipping-returns.html" aria-current="page">Shipping & Returns</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  document.body.classList.add("page-loaded");
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

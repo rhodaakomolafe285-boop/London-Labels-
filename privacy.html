@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Privacy Policy | London Labels</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="header" role="banner">
+  <div class="container topbar">
+    <a class="brand" href="index.html" aria-label="London Labels home">
+      <img src="assets/logo.png" alt="London Labels logo" width="54" height="54">
+      <div>
+        <h1>London Labels</h1>
+        <p>Clothing | Shoes | Tech | New &amp; Thrift</p>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="clothing.html">Clothing</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="tech.html">Tech</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="main">
+  <section class="section reveal" aria-labelledby="privacy-title">
+    <h2 id="privacy-title">Privacy Policy</h2>
+    <p class="small">Short and clear is best. Update this to match how you really run things.</p>
+
+    <h3>What we collect</h3>
+    <ul class="list">
+      <li>Name, delivery address, email/phone (for orders and customer support).</li>
+      <li>Messages you send us on WhatsApp/Instagram/email.</li>
+    </ul>
+
+    <h3>Payments</h3>
+    <p class="small">
+      Payments are processed securely by Stripe/PayPal. We do not store or process your card details on this website.
+    </p>
+
+    <h3>How we use your data</h3>
+    <ul class="list">
+      <li>To fulfil orders, deliver items, and provide customer support.</li>
+      <li>To handle returns/refunds where needed.</li>
+    </ul>
+
+    <h3>Contact</h3>
+    <p class="small">
+      If you have questions about your data, contact us via the <a href="contact.html"><u>Contact page</u></a>.
+    </p>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div>© <span id="year"></span> London Labels</div>
+  <div class="links">
+    <a href="shipping-returns.html">Shipping & Returns</a>
+    <a href="privacy.html" aria-current="page">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  document.body.classList.add("page-loaded");
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

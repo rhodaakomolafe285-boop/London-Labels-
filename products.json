@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "id": "hoodie-001",
+      "name": "Pink Crop Hoodie",
+      "price": 20,
+      "category": "clothing",
+      "image": "products/hoodie.jpg",
+      "description": "Soft, comfy. Great condition.",
+      "condition": "Like new",
+      "paymentLink": "https://buy.stripe.com/REPLACE_ME",
+      "collection": "new"
+    },
+    {
+      "id": "trainers-001",
+      "name": "Trainers (Size UK 6)",
+      "price": 35,
+      "category": "shoes",
+      "image": "products/trainers.jpg",
+      "description": "Clean, quality checked.",
+      "condition": "Very good",
+      "paymentLink": "https://buy.stripe.com/REPLACE_ME",
+      "collection": "new"
+    },
+    {
+      "id": "headphones-001",
+      "name": "Wireless Headphones",
+      "price": 25,
+      "category": "tech",
+      "image": "products/headphones.jpg",
+      "description": "Brand new, boxed.",
+      "condition": "Brand new",
+      "paymentLink": "https://buy.stripe.com/REPLACE_ME"
+    }
+  ]
+}

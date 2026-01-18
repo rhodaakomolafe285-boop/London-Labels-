@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>London Labels | New & Thrift Finds</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- Skip link helps keyboard users jump past repeated nav -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Site header -->
+<header class="header" role="banner">
+  <div class="container topbar">
+    <a class="brand" href="index.html" aria-label="London Labels home">
+      <img src="assets/logo.png" alt="London Labels logo" width="54" height="54">
+      <div>
+        <h1>London Labels</h1>
+        <p>Clothing | Shoes | Tech | New &amp; Thrift</p>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a class="active" aria-current="page" href="index.html">Home</a>
+      <a href="clothing.html">Clothing</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="tech.html">Tech</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero with masked video inside letters -->
+<section class="heroXL reveal">
+  <div class="heroOverlay"></div>
+
+  <div class="titleVideoWrap" aria-label="London Labels wordmark">
+    <div class="titleFallback">LONDON LABELS</div>
+    <video class="titleVideo" aria-hidden="true" autoplay muted loop playsinline preload="auto">
+      <source src="assets/ripplevid.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="heroSub">
+    <div class="heroTag">NEW &amp; THRIFTS</div>
+    <div class="heroLine">CLOTHES | SHOES | BAGS | APPLIANCES | TECH</div>
+
+    <div class="heroButtons">
+      <a class="btn primary glow" href="clothing.html">Shop Now</a>
+      <a class="btn soft" href="contact.html">Contact</a>
+    </div>
+  </div>
+</section>
+
+<main class="container" id="main">
+
+  <section class="section reveal" aria-labelledby="latest-title">
+    <div class="page-title">
+      <h3 id="latest-title">Latest Drops</h3>
+      <span class="badge">New In</span>
+    </div>
+
+    <div id="latest" class="grid" aria-live="polite"></div>
+
+    <p class="small">
+      Looking for something specific? Message us on WhatsApp.
+    </p>
+    <p class="small">
+      In-person collection? Message us on WhatsApp: <a href="https://wa.me/447486418949">+44 7486 418949</a>.
+    </p>
+  </section>
+
+  <section class="section reveal" aria-labelledby="why-title">
+    <h3 id="why-title">Why shop with London Labels?</h3>
+    <ul class="list">
+      <li>Secure payments (Stripe checkout).</li>
+      <li>Quality checked items.</li>
+      <li>Fast replies on WhatsApp / Instagram.</li>
+      <li>Clear shipping &amp; returns policy.</li>
+    </ul>
+  </section>
+
+  <section class="section reveal" aria-labelledby="returns-title">
+    <h3 id="returns-title">Returns, Refunds &amp; Exchanges</h3>
+
+    <h4>Return Eligibility</h4>
+    <ul class="list">
+      <li>The item is unused, unworn, and in its original condition.</li>
+      <li>The item is returned in its original packaging with tags (if applicable).</li>
+      <li>The return request is made within 48 hrs of delivery.</li>
+    </ul>
+
+    <h4>Return Process</h4>
+    <ul class="list">
+      <li>Contact customer support at <a href="mailto:olubunmiakomolafe848@gmail.com">olubunmiakomolafe848@gmail.com</a> or <a href="tel:07015334639">07015334639</a>.</li>
+      <li>Provide your order number and reason for return.</li>
+      <li>Once approved, you will receive return instructions.</li>
+      <li>Items returned without prior approval may not be accepted.</li>
+    </ul>
+
+    <h4>Return Shipping</h4>
+    <ul class="list">
+      <li>Customers are responsible for return shipping costs unless the item is defective or incorrect.</li>
+      <li>Shipping fees are non-refundable.</li>
+      <li>We recommend using a trackable shipping service.</li>
+    </ul>
+
+    <h4>Refunds</h4>
+    <ul class="list">
+      <li>Once we receive and inspect your return, we will notify you of approval or rejection.</li>
+      <li>\1 5-10 \2</li>
+      <li>Bank or card providers may take additional time to reflect the refund.</li>
+    </ul>
+
+    <h4>Exchanges</h4>
+    <p class="small">
+      We only replace items if they are defective, damaged, or incorrect. To request an exchange,
+      contact us at <a href="mailto:olubunmiakomolafe848@gmail.com">olubunmiakomolafe848@gmail.com</a>
+      and include photos if applicable.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div>© <span id="year"></span> London Labels</div>
+  <div class="links">
+    <a href="shipping-returns.html">Shipping & Returns</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  // Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Latest products feed
+  renderLatest("latest", 8).catch(console.error);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Product | London Labels</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="header" role="banner">
+  <div class="container topbar">
+    <a class="brand" href="index.html" aria-label="London Labels home">
+      <img src="assets/logo.png" alt="London Labels logo" width="54" height="54">
+      <div>
+        <h1>London Labels</h1>
+        <p>Clothing | Shoes | Tech | New &amp; Thrift</p>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="clothing.html">Clothing</a>
+      <a href="shoes.html">Shoes</a>
+      <a href="tech.html">Tech</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="main">
+  <div class="product-layout reveal" aria-live="polite">
+    <section class="product-box">
+      <div class="product-image" aria-live="polite">
+        <img id="pImg" src="" alt="" width="720" height="540">
+      </div>
+    </section>
+
+    <section class="product-box">
+      <div class="page-title">
+        <h2 id="pName">Product</h2>
+        <span class="badge" id="pCat"></span>
+      </div>
+
+      <div class="price" id="pPrice">₦0.00</div>
+      <p class="small" id="pCond"></p>
+      <p id="pDesc" class="small"></p>
+
+      <div class="notice" style="margin-top:12px;">
+        <strong>Delivery:</strong> See our <a href="shipping-returns.html"><u>Shipping &amp; Returns</u></a> page for times and costs.
+      </div>
+
+      <div class="actions" style="margin-top:12px;">
+        <a id="pPay" class="btn primary" href="#" target="_blank" rel="noreferrer">Buy securely</a>
+        <a id="pWA" class="btn soft" href="#" target="_blank" rel="noreferrer">Ask on WhatsApp</a>
+      </div>
+
+      <p class="small" style="margin-top:12px;">
+        If the item sells out, the secure link may stop working. Message us if you need help.
+      </p>
+    </section>
+  </div>
+
+  <section class="section reveal" aria-labelledby="help-title">
+    <h3 id="help-title">Need help?</h3>
+    <p class="small">If you want more photos, sizing info, or have questions, contact us via WhatsApp or Instagram.</p>
+    <div class="actions">
+      <a class="btn" href="contact.html">Go to Contact</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div>© <span id="year"></span> London Labels</div>
+  <div class="links">
+    <a href="shipping-returns.html">Shipping & Returns</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+</footer>
+
+<script>
+  // Update footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Helper: read the product id from the query string
+  function getIdFromUrl() {
+    const params = new URLSearchParams(location.search);
+    return params.get("id");
+  }
+
+  // Load and render the product details
+  async function loadProduct() {
+    const id = getIdFromUrl();
+    if (!id) {
+      document.querySelector("main").innerHTML = "<p class='container'>No product selected.</p>";
+      return;
+    }
+
+    const res = await fetch("products.json");
+    if (!res.ok) throw new Error("Could not load products.json");
+    const data = await res.json();
+    const products = Array.isArray(data) ? data : (data.items || []);
+    const p = products.find(x => x.id === id);
+
+    if (!p) {
+      document.querySelector("main").innerHTML = "<p class='container'>Product not found.</p>";
+      return;
+    }
+
+    document.title = `${p.name} | London Labels`;
+
+    // Populate content
+    const imgEl = document.getElementById("pImg");
+    imgEl.src = p.image;
+    imgEl.alt = p.name;
+
+    document.getElementById("pName").textContent = p.name;
+    document.getElementById("pCat").textContent = (p.category || "").toUpperCase();
+    document.getElementById("pPrice").textContent = `₦${Number(p.price).toFixed(2)}`;
+    document.getElementById("pCond").textContent = p.condition ? `Condition: ${p.condition}` : "";
+    document.getElementById("pDesc").textContent = p.description || "";
+
+    // Stripe link (hide button if missing)
+    const pay = document.getElementById("pPay");
+    if (p.paymentLink) {
+      pay.href = p.paymentLink;
+    } else {
+      pay.style.display = "none";
+    }
+
+    // WhatsApp link with product context
+    const waText = encodeURIComponent(`Hi London Labels, I'm interested in: ${p.name} (${p.id}). Is it available?`);
+    document.getElementById("pWA").href = `https://wa.me/447000000000?text=${waText}`;
+  }
+
+  loadProduct().catch(err => {
+    console.error(err);
+    document.querySelector("main").innerHTML = "<p class='container'>Sorry, we could not load this product.</p>";
+  });
+</script>
+
+</body>
+</html>
